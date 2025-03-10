@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &578450785454146962
 Transform:
   m_ObjectHideFlags: 0
@@ -104,6 +104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  health: 100
+  destroyEffect: {fileID: 0}
 --- !u!95 &8037549398313139290
 Animator:
   serializedVersion: 5
@@ -142,7 +144,7 @@ MonoBehaviour:
   - {fileID: 1792945189975837189}
   spawnList:
   - {fileID: 1521210676849995806}
-  fireRate: 0.5
+  fireRate: 1
 --- !u!68 &92875608740223972
 EdgeCollider2D:
   m_ObjectHideFlags: 0

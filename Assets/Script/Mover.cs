@@ -20,5 +20,10 @@ public class Mover : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+        else
+        if (collision.gameObject.tag == "Player")
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

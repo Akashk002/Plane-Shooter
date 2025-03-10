@@ -336,6 +336,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  health: 1000
+  destroyEffect: {fileID: 7811776711822740274, guid: 7da1523f049f1d84384e1cfad6fe78b0, type: 3}
 --- !u!68 &45892396
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -404,7 +406,6 @@ MonoBehaviour:
   - {fileID: 2788864631035147325}
   - {fileID: 1991335786437896704}
   fireRate: 0.2
-  shoot: 1
 --- !u!95 &8723136416669545653
 Animator:
   serializedVersion: 5

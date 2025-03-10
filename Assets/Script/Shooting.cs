@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public Objectname objectname;
+    public ObjectName objectname;
     public List<GameObject> flashList = new List<GameObject>();
     public List<Transform> spawnList = new List<Transform>();
     public float fireRate; // Delay between shots
@@ -18,15 +18,22 @@ public class Shooting : MonoBehaviour
 
     private void Update()
     {
-        if (objectname == Objectname.PlayerBullet && Input.GetKey(KeyCode.RightShift) && shoot)
+        if (objectname == ObjectName.PlayerBullet)
         {
-            StartCoroutine(ShootContinuously());
+            if (Input.GetButton("Fire1") && shoot)
+            {
+                StartCoroutine(ShootContinuously());
+            }
+            else
+            {
+                StopCoroutine(ShootContinuously());
+            }
         }
     }
 
     void OnEnable()
     {
-        if (objectname != Objectname.PlayerBullet)
+        if (objectname != ObjectName.PlayerBullet)
         {
             StartCoroutine(ShootContinuously());
         }
@@ -35,33 +42,33 @@ public class Shooting : MonoBehaviour
 
     IEnumerator ShootContinuously()
     {
-        if (shoot)
+        shoot = false;
+        Fire();
+
+        foreach (var flash in flashList)
         {
-            shoot = false;
-            Fire();
-
-            foreach (var flash in flashList)
-            {
-                flash.SetActive(true);
-            }
-            yield return new WaitForSeconds(0.04f);
-            foreach (var flash in flashList)
-            {
-                flash.SetActive(false);
-            }
-
+            flash.SetActive(true);
+        }
+        yield return new WaitForSeconds(0.04f);
+        foreach (var flash in flashList)
+        {
+            flash.SetActive(false);
         }
 
         yield return new WaitForSeconds(fireRate); // Wait for the next shot
         shoot = true;
-        StartCoroutine(ShootContinuously());
+
+        if (objectname != ObjectName.PlayerBullet)
+        {
+            StartCoroutine(ShootContinuously());
+        }
     }
 
     private void Fire()
     {
         foreach (var spawnpoint in spawnList)
         {
-            ObjectPoolManager.This.GetPooledObject(objectname.ToString(), spawnpoint.transform.position);
+            ObjectPoolManager.This.GetPooledObject(objectname, spawnpoint.transform.position);
         }
     }
 }

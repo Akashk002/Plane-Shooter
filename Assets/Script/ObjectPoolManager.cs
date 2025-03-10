@@ -42,40 +42,40 @@ public class ObjectPoolManager : MonoBehaviour
     }
 
     // Function to get an object from the pool
-    public GameObject GetPooledObject(string tag, Vector3 position)
+    public GameObject GetPooledObject(ObjectName objectname, Vector3 position)
     {
-        Debug.Log("key2 - " + tag);
-        if (!poolDictionary.ContainsKey(tag))
+        Debug.Log("key2 - " + objectname);
+        if (!poolDictionary.ContainsKey(objectname.ToString()))
         {
-            Debug.LogWarning("Pool with tag " + tag + " doesn't exist.");
+            Debug.LogWarning("Pool with tag " + objectname + " doesn't exist.");
             return null;
         }
 
-        GameObject obj = poolDictionary[tag].Dequeue();
+        GameObject obj = poolDictionary[objectname.ToString()].Dequeue();
 
         if (obj.activeInHierarchy)
         {
             // If all objects are in use, create a new one (optional)
-            obj = Instantiate(poolDictionary[tag].Peek());
+            obj = Instantiate(poolDictionary[objectname.ToString()].Peek());
         }
 
         obj.SetActive(true);
         obj.transform.position = position;
 
-        poolDictionary[tag].Enqueue(obj);
+        poolDictionary[objectname.ToString()].Enqueue(obj);
         return obj;
     }
 }
 [System.Serializable]
 public class Pool
 {
-    public Objectname objectname;
+    public ObjectName objectname;
     public GameObject prefab;
     public int size;
 }
 
 [System.Serializable]
-public enum Objectname
+public enum ObjectName
 {
     PlayerBullet,
     Coin,
