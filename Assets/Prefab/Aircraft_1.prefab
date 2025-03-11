@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 8037549398313139290}
   - component: {fileID: 8179632249457426169}
   - component: {fileID: 92875608740223972}
-  - component: {fileID: 1458233037027441891}
+  - component: {fileID: 7552055596303786482}
   m_Layer: 0
   m_Name: Aircraft_1
   m_TagString: Enemy
@@ -261,7 +261,7 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!50 &1458233037027441891
+--- !u!50 &7552055596303786482
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

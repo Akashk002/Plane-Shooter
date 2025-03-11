@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class GameManager : MonoBehaviour
     public levelStartAnimation levelStartAnimation;
     public int currentlevel;
     int coin;
+    public TMP_Text coinText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,9 +44,10 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Startlevel());
     }
 
-    public void SetCoin(int val)
+    public void AddCoin(int val = 1)
     {
         coin += val;
+        coinText.text = coin.ToString();
     }
     public int GetCoin()
     {

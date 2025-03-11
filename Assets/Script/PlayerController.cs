@@ -1,15 +1,19 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
-    public int health;
+    public int health, MaxHealth;
     public GameObject destroyEffect;
     private float moveX, moveY;
     private float minX, maxX, minY, maxY; // Screen bounds
+    public Slider slider;
+    public int bonusHealth = 50;
 
     void Start()
     {
+        MaxHealth = health;
         // Calculate screen boundaries dynamically
         float halfWidth = GetComponent<SpriteRenderer>().bounds.extents.x;  // Player width
         float halfHeight = GetComponent<SpriteRenderer>().bounds.extents.y; // Player height
@@ -45,30 +49,43 @@ public class PlayerController : MonoBehaviour
         else
         if (collision.gameObject.tag == "Coin")
         {
-            GameManager.This.SetCoin(1);
+            GameManager.This.AddCoin();
         }
         else
         if (collision.gameObject.tag == "Health")
         {
-            AddHealth(50);
+            UpdateHealth(bonusHealth);
         }
     }
 
     void damage(int val)
     {
-        if (health > 0)
-        {
-            health -= val;
-        }
-        else
+        UpdateHealth(-val);
+
+        if (health <= 0)
         {
             ObjectPoolManager.This.GetPooledObject(ObjectName.PlaneDestroyEffect, transform.position);
             gameObject.SetActive(false);
         }
     }
 
-    void AddHealth(int val)
+    public void UpdateHealth(int val)
     {
-        health += val;
+        if (health > 0)
+        {
+            health += val;
+
+            if (health > MaxHealth)
+            {
+                health = MaxHealth;
+            }
+
+            if (health < 0)
+            {
+                health = 0;
+            }
+
+            slider.value = health;
+        }
     }
 }
