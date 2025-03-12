@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
-    public float speed = 5f;
-    public Vector3 direction = Vector3.right; // Move to the right by default
+    [SerializeField] float speed = 5f;
+    [SerializeField] Vector3 direction = Vector3.right; // Move to the right by default
 
     void Update()
     {

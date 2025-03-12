@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public ObjectName objectname;
-    public List<GameObject> flashList = new List<GameObject>();
-    public List<Transform> spawnList = new List<Transform>();
-    public float fireRate; // Delay between shots
+    [SerializeField] ObjectName objectname;
+    [SerializeField] List<GameObject> flashList = new List<GameObject>();
+    [SerializeField] List<Transform> spawnList = new List<Transform>();
+    [SerializeField] float fireRate; // Delay between shots
     private bool shoot = true;
 
     // Start is called before the first frame update

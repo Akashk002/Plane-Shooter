@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed;
+    [SerializeField] float speed;
     public int damageRate;
     public GameObject damageEffect;
     public Vector3 direction = Vector3.right; // Move to the right by default

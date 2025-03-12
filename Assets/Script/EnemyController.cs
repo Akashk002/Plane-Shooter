@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public float speed;
-    public int health;
+    [SerializeField] float speed;
+    [SerializeField] int health, maxhealth;
     public GameObject destroyEffect;
 
     void Update()
@@ -37,6 +37,7 @@ public class EnemyController : MonoBehaviour
             ObjectPoolManager.This.GetPooledObject(ObjectName.PlaneDestroyEffect, transform.position);
             ObjectName objectName = (Random.Range(0, 4) < 3) ? ObjectName.Coin : ObjectName.Health;
             ObjectPoolManager.This.GetPooledObject(objectName, transform.position);
+            health = maxhealth;
             gameObject.SetActive(false);
         }
     }

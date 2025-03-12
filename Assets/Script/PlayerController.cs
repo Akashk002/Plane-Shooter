@@ -3,18 +3,17 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 5f;
-    public int health, MaxHealth;
+    [SerializeField] float speed = 5f;
+    [SerializeField] int health, MaxHealth;
     public GameObject destroyEffect;
     private float moveX, moveY;
-    private float minX, maxX, minY, maxY; // Screen bounds
+    private float minX, maxX, minY, maxY;
     public Slider slider;
-    public int bonusHealth = 50;
+    [SerializeField] int bonusHealth = 50;
 
     void Start()
     {
         MaxHealth = health;
-        // Calculate screen boundaries dynamically
         float halfWidth = GetComponent<SpriteRenderer>().bounds.extents.x;  // Player width
         float halfHeight = GetComponent<SpriteRenderer>().bounds.extents.y; // Player height
 
@@ -27,14 +26,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Get input for movement
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
 
-        // Move the player
         transform.position += new Vector3(moveX * speed * Time.deltaTime, moveY * speed * Time.deltaTime, 0);
-
-        // Clamp position within screen bounds
         float clampedX = Mathf.Clamp(transform.position.x, minX, maxX);
         float clampedY = Mathf.Clamp(transform.position.y, minY, maxY - (maxY - minY) * 2 / 3);
         transform.position = new Vector3(clampedX, clampedY, transform.position.z);

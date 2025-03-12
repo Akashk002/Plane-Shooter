@@ -191,7 +191,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   health: 100
-  destroyEffect: {fileID: 0}
+  maxhealth: 100
+  destroyEffect: {fileID: 7811776711822740274, guid: 7da1523f049f1d84384e1cfad6fe78b0, type: 3}
 --- !u!95 &8037549398313139290
 Animator:
   serializedVersion: 5

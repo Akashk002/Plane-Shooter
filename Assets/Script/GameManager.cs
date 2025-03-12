@@ -7,11 +7,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager This;
     public List<LevelData> levelDataList = new List<LevelData>();
-    public Spawner spawner;
-    public levelStartAnimation levelStartAnimation;
-    public int currentlevel;
+    [SerializeField] Spawner spawner;
+    [SerializeField] levelStartAnimation levelStartAnimation;
+    [SerializeField] TMP_Text coinText;
     int coin;
-    public TMP_Text coinText;
+    int currentlevel;
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,10 +49,6 @@ public class GameManager : MonoBehaviour
     {
         coin += val;
         coinText.text = coin.ToString();
-    }
-    public int GetCoin()
-    {
-        return coin;
     }
 }
 

@@ -5,8 +5,8 @@ using TMPro;
 
 public class levelStartAnimation : MonoBehaviour
 {
-    public TMP_Text waveName;
-    public Animator anim;
+    [SerializeField] TMP_Text waveName;
+    [SerializeField] Animator anim;
 
     public void SetText(string levelName)
     {

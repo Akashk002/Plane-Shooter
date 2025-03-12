@@ -4,18 +4,13 @@ using UnityEngine;
 public class ObjectPoolManager : MonoBehaviour
 {
     public static ObjectPoolManager This;
-    public List<Pool> pools;
+    [SerializeField] List<Pool> pools;
     private Dictionary<string, Queue<GameObject>> poolDictionary;
     private Dictionary<string, Transform> poolParents; // Parent holders for organization
 
-    private void Awake()
-    {
-        This = this;
-    }
-
     void Start()
     {
-
+        This = this;
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
         poolParents = new Dictionary<string, Transform>();
 

@@ -949,12 +949,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9194529932597277175, guid: ec87ad88728be0941ae8d9415a254193, type: 3}
+      propertyPath: health
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 9194529932597277175, guid: ec87ad88728be0941ae8d9415a254193, type: 3}
       propertyPath: slider
       value: 
       objectReference: {fileID: 756153076}
     - target: {fileID: 9194529932597277175, guid: ec87ad88728be0941ae8d9415a254193, type: 3}
       propertyPath: MaxHealth
-      value: 1000
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 9194529932597277177, guid: ec87ad88728be0941ae8d9415a254193, type: 3}
       propertyPath: m_Name
@@ -1014,7 +1018,6 @@ MonoBehaviour:
     Count: 20
   spawner: {fileID: 723820499}
   levelStartAnimation: {fileID: 1637613303}
-  currentlevel: 0
   coinText: {fileID: 1772451915}
 --- !u!4 &1267500870
 Transform:
@@ -1315,8 +1318,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3bf513dc92128747b0420fc5e7103d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
-  coinText: {fileID: 0}
 --- !u!1 &1637613300
 GameObject:
   m_ObjectHideFlags: 0
