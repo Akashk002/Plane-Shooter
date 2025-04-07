@@ -23,13 +23,13 @@ public class Bullet : MonoBehaviour
             gameObject.SetActive(false);
         }
         else
-        if (tag == "PlayerBullet" && collision.GetComponent<EnemyController>())
+        if (tag == "PlayerBullet" && collision.GetComponent<EnemyMovement>())
         {
             ObjectPoolManager.This.GetPooledObject(ObjectName.BulletDestroyEffect, transform.position);
             gameObject.SetActive(false);
         }
         else
-        if (tag == "EnemyBullet" && collision.GetComponent<PlayerController>())
+        if (tag == "EnemyBullet" && collision.GetComponent<PlayerMovement>())
         {
             ObjectPoolManager.This.GetPooledObject(ObjectName.BulletDestroyEffect, transform.position);
             gameObject.SetActive(false);
