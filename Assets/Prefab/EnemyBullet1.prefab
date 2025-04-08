@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8972967904823241712}
   - component: {fileID: 8972967904823241713}
-  - component: {fileID: 6306951025170039090}
   - component: {fileID: 7449955679704359316}
-  - component: {fileID: -7332976513588686085}
+  - component: {fileID: 7772074938280760253}
   m_Layer: 0
   m_Name: EnemyBullet1
   m_TagString: EnemyBullet
@@ -87,22 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6306951025170039090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8972967904823241714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15eacd4967bccfd4cadc2ecaa939d2f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  damageRate: 2
-  damageEffect: {fileID: 5961162008371014371, guid: c7ae016f335c27f468efae1b01c2bd27, type: 3}
-  direction: {x: 0, y: -1, z: 0}
 --- !u!61 &7449955679704359316
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -129,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.06171327, y: 0.42493653}
   m_EdgeRadius: 0
---- !u!114 &-7332976513588686085
+--- !u!114 &7772074938280760253
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,10 +121,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8972967904823241714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15eacd4967bccfd4cadc2ecaa939d2f8, type: 3}
+  m_Script: {fileID: 11500000, guid: ec723588f7db2ab4caebce62180de5d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  damageRate: 0
-  damageEffect: {fileID: 0}
-  direction: {x: 1, y: 0, z: 0}
+  speed: 5
+  direction: {x: 0, y: -1, z: 0}
+  damageRate: 2
+  damageEffect: {fileID: 5961162008371014371, guid: c7ae016f335c27f468efae1b01c2bd27, type: 3}

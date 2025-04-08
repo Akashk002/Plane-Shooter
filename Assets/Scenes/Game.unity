@@ -897,6 +897,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6817895308579731121, guid: ec87ad88728be0941ae8d9415a254193, type: 3}
+      propertyPath: maxHealth
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817895308579731121, guid: ec87ad88728be0941ae8d9415a254193, type: 3}
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 756153076}
@@ -1002,7 +1006,9 @@ MonoBehaviour:
     Count: 20
   spawner: {fileID: 723820499}
   levelStartAnimation: {fileID: 1637613303}
+  playerHealth: {fileID: 0}
   coinText: {fileID: 1772451915}
+  playerHealthSlider: {fileID: 756153076}
 --- !u!4 &1267500870
 Transform:
   m_ObjectHideFlags: 0

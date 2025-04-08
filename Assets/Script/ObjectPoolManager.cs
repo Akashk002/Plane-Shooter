@@ -30,8 +30,6 @@ public class ObjectPoolManager : MonoBehaviour
                 obj.transform.SetParent(parentObject.transform); // Assign to the folder
                 objectPool.Enqueue(obj);
             }
-
-            Debug.Log("key1 - " + pool.objectname);
             poolDictionary.Add(pool.objectname.ToString(), objectPool);
         }
     }
@@ -39,7 +37,6 @@ public class ObjectPoolManager : MonoBehaviour
     // Function to get an object from the pool
     public GameObject GetPooledObject(ObjectName objectname, Vector3 position)
     {
-        Debug.Log("key2 - " + objectname);
         if (!poolDictionary.ContainsKey(objectname.ToString()))
         {
             Debug.LogWarning("Pool with tag " + objectname + " doesn't exist.");
@@ -67,26 +64,4 @@ public class Pool
     public ObjectName objectname;
     public GameObject prefab;
     public int size;
-}
-
-[System.Serializable]
-public enum ObjectName
-{
-    PlayerBullet,
-    Coin,
-    Health,
-    EnemyBullet1,
-    EnemyBullet2,
-    EnemyBullet3,
-    EnemyBullet4,
-    EnemyBullet5,
-    Aircraft1,
-    Aircraft2,
-    Aircraft3,
-    Aircraft4,
-    Chopper,
-    Chopper2,
-    PlaneDestroyEffect,
-    BulletDestroyEffect,
-
 }

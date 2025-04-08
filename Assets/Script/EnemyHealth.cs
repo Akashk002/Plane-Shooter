@@ -1,26 +1,19 @@
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : BaseHealth
 {
-    [SerializeField] private int maxHealth = 100;
-    private int currentHealth;
-
-    private void Start()
+    private void OnEnable()
     {
-        currentHealth = maxHealth;
+        UIAction.OnEnemyDamage += TakeDamage;
     }
 
-    public void TakeDamage(int damage)
+    private void OnDisable()
     {
-        currentHealth -= damage;
-
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
+        UIAction.OnEnemyDamage -= TakeDamage;
     }
 
-    private void Die()
+
+    public override void Die()
     {
         ObjectPoolManager.This.GetPooledObject(ObjectName.PlaneDestroyEffect, transform.position);
         ObjectName objectName = (Random.Range(0, 4) < 3) ? ObjectName.Coin : ObjectName.Health;

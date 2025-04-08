@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 8037549398313139290}
   - component: {fileID: 92875608740223972}
   - component: {fileID: -6727225149624486076}
+  - component: {fileID: -4969497574892831376}
   m_Layer: 0
   m_Name: Aircraft_2
   m_TagString: Enemy
@@ -307,6 +308,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-4969497574892831376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578450785454146975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794ac99f6f561934293d2ef1a51e66e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectname: 5
+  flashList:
+  - {fileID: 1792945189975837189}
+  - {fileID: 220532512114686196}
+  spawnList:
+  - {fileID: 1521210676849995806}
+  - {fileID: 417922668440944340}
+  fireRate: 1
 --- !u!1 &756284085664398610
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,10 +10,23 @@ public class GameManager : MonoBehaviour
     public List<LevelData> levelDataList = new List<LevelData>();
     [SerializeField] Spawner spawner;
     [SerializeField] levelStartAnimation levelStartAnimation;
+    [SerializeField] PlayerHealth playerHealth;
     [SerializeField] TMP_Text coinText;
+    [SerializeField] Slider playerHealthSlider;
     int coin;
     int currentlevel;
 
+    private void OnEnable()
+    {
+        UIAction.OnCollisionWithCoin += AddCoin;
+        UIAction.OnCollisionWithHealthBonus += UpdateHealthSlider;
+    }
+
+    private void OnDisable()
+    {
+        UIAction.OnCollisionWithCoin -= AddCoin;
+        UIAction.OnCollisionWithHealthBonus -= UpdateHealthSlider;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -45,10 +59,15 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Startlevel());
     }
 
-    public void AddCoin(int val = 1)
+    void AddCoin()
     {
-        coin += val;
+        coin ++;
         coinText.text = coin.ToString();
+    }
+    
+    void UpdateHealthSlider()
+    {
+        playerHealthSlider.value = playerHealth.GetHealth();
     }
 }
 
@@ -59,4 +78,32 @@ public class LevelData
     public List<ObjectName> EnemyList = new List<ObjectName>();
     public float spwanTime;
     public int Count;
+}
+
+[System.Serializable]
+public enum ObjectName
+{
+    PlayerBullet,
+    Coin,
+    Health,
+    EnemyBullet1,
+    EnemyBullet2,
+    EnemyBullet3,
+    EnemyBullet4,
+    EnemyBullet5,
+    Aircraft1,
+    Aircraft2,
+    Aircraft3,
+    Aircraft4,
+    Chopper,
+    Chopper2,
+    PlaneDestroyEffect,
+    BulletDestroyEffect,
+}
+
+[System.Serializable]
+public enum BonusType
+{
+    Coin,
+    Health
 }

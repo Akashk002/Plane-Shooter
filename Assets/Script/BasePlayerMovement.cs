@@ -1,7 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer))]
-public class PlayerMovement : MonoBehaviour
+public abstract class BasePlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     private float moveX, moveY;
@@ -21,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
         //pause movement after player died 
     }
 
-    void Update()
+    public virtual void Update()
     {
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");

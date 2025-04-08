@@ -128,10 +128,10 @@ GameObject:
   - component: {fileID: -7159960697008493025}
   - component: {fileID: 6511114265586542734}
   - component: {fileID: 110925391235192222}
-  - component: {fileID: 8179632249457426169}
   - component: {fileID: 8037549398313139290}
   - component: {fileID: 92875608740223972}
   - component: {fileID: 1458233037027441891}
+  - component: {fileID: -114728133351030883}
   m_Layer: 0
   m_Name: Aircraft_3
   m_TagString: Enemy
@@ -252,30 +252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29516b221d1d917408cec9ee0937183f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8179632249457426169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578450785454146975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f710be99f161cb84faef261e9b9811a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectname: 4
-  flashList:
-  - {fileID: 1792945189975837189}
-  - {fileID: 220532512114686196}
-  - {fileID: 3205112871814199967}
-  - {fileID: 8022412124449619073}
-  spawnList:
-  - {fileID: 1521210676849995806}
-  - {fileID: 417922668440944340}
-  - {fileID: 230077298138596473}
-  - {fileID: 4479012331748713292}
-  fireRate: 1
 --- !u!95 &8037549398313139290
 Animator:
   serializedVersion: 5
@@ -348,6 +324,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-114728133351030883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578450785454146975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794ac99f6f561934293d2ef1a51e66e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectname: 4
+  flashList:
+  - {fileID: 1792945189975837189}
+  - {fileID: 220532512114686196}
+  - {fileID: 3205112871814199967}
+  - {fileID: 8022412124449619073}
+  spawnList:
+  - {fileID: 1521210676849995806}
+  - {fileID: 417922668440944340}
+  - {fileID: 230077298138596473}
+  - {fileID: 4479012331748713292}
+  fireRate: 1
 --- !u!1 &756284085664398610
 GameObject:
   m_ObjectHideFlags: 0
