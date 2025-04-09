@@ -12,12 +12,13 @@ public abstract class BaseHealth : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    protected void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         currentHealth -= damage;
 
         if (currentHealth <= 0)
         {
+            currentHealth = 0;
             Die();
         }
     }

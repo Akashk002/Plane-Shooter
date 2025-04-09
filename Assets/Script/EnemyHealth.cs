@@ -2,16 +2,17 @@ using UnityEngine;
 
 public class EnemyHealth : BaseHealth
 {
+    bool lastEnemy = false;
+
     private void OnEnable()
     {
-        UIAction.OnEnemyDamage += TakeDamage;
+        GameAction.OnEnemyDamage += TakeDamage;
     }
 
     private void OnDisable()
     {
-        UIAction.OnEnemyDamage -= TakeDamage;
+        GameAction.OnEnemyDamage -= TakeDamage;
     }
-
 
     public override void Die()
     {
@@ -21,10 +22,20 @@ public class EnemyHealth : BaseHealth
 
         gameObject.SetActive(false);
         ResetHealth();
+
+        if (lastEnemy)
+        {
+            GameAction.OnGameComplete?.Invoke();
+        }
     }
 
     private void ResetHealth()
     {
         currentHealth = maxHealth;
+    }
+
+    public void SetLastEnemy()
+    {
+        lastEnemy = true;
     }
 }

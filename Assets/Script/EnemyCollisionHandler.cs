@@ -11,7 +11,7 @@ public class EnemyCollisionHandler : BaseCollisionHandler
         else if (collision.GetComponent<PlayerBullet>())
         { 
             int damage = collision.gameObject.GetComponent<PlayerBullet>().GetDamageRate();
-            UIAction.OnEnemyDamage?.Invoke(damage);
+            GameAction.OnEnemyDamage?.Invoke(damage);
         }
     } 
 } 

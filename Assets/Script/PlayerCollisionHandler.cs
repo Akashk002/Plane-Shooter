@@ -8,18 +8,19 @@ public class PlayerCollisionHandler : BaseCollisionHandler
         if (collision.GetComponent<EnemyBullet>())
         {
             int damage = collision.gameObject.GetComponent<EnemyBullet>().GetDamageRate();
-            UIAction.OnPlayerDamage?.Invoke(damage);
+            GameAction.OnPlayerDamage?.Invoke(damage);
         }
         else
         if (collision.GetComponent<CoinMovement>())
         {
-            UIAction.OnCollisionWithCoin?.Invoke();
+            GameAction.OnCollisionWithCoin?.Invoke();
+            collision.gameObject.SetActive(false);
         }
         else
         if (collision.GetComponent<HealthBoosterMovement>())
         {
-            UIAction.OnCollisionWithHealthBonus?.Invoke();
+            GameAction.OnCollisionWithHealthBonus?.Invoke();
+            collision.gameObject.SetActive(false);
         }
-
     }
 }

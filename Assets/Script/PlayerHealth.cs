@@ -7,25 +7,40 @@ public class PlayerHealth : BaseHealth
 
     private void OnEnable()
     {
-        UIAction.OnPlayerDamage += TakeDamage;
-        UIAction.OnCollisionWithHealthBonus += BonusHealth;
+        GameAction.OnPlayerDamage += TakeDamage;
+        GameAction.OnCollisionWithHealthBonus += BonusHealth;
     }
 
     private void OnDisable()
     {
-        UIAction.OnPlayerDamage -= TakeDamage;
-        UIAction.OnCollisionWithHealthBonus -= BonusHealth;
+        GameAction.OnPlayerDamage -= TakeDamage;
+        GameAction.OnCollisionWithHealthBonus -= BonusHealth;
+    }
+    public override void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            Die();
+        }
+
+        GameAction.OnUpdatePlayerHealthSlider?.Invoke(currentHealth);
     }
 
     public override void Die()
     {
         ObjectPoolManager.This.GetPooledObject(ObjectName.PlaneDestroyEffect, transform.position);
         gameObject.SetActive(false);
+        GameAction.OnPlayerDie?.Invoke();
     }
 
     void BonusHealth()
     {
         currentHealth += bonusHealth;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        GameAction.OnUpdatePlayerHealthSlider(currentHealth);
     }
 }

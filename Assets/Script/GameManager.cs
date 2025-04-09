@@ -13,19 +13,24 @@ public class GameManager : MonoBehaviour
     [SerializeField] PlayerHealth playerHealth;
     [SerializeField] TMP_Text coinText;
     [SerializeField] Slider playerHealthSlider;
+    [SerializeField] GameObject gameOverPanel, gameCompletePanel;
     int coin;
     int currentlevel;
 
     private void OnEnable()
     {
-        UIAction.OnCollisionWithCoin += AddCoin;
-        UIAction.OnCollisionWithHealthBonus += UpdateHealthSlider;
+        GameAction.OnCollisionWithCoin += AddCoin;
+        GameAction.OnUpdatePlayerHealthSlider += UpdateHealthSlider;
+        GameAction.OnPlayerDie += GameOver;
+        GameAction.OnGameComplete += GameComplete;
     }
 
     private void OnDisable()
     {
-        UIAction.OnCollisionWithCoin -= AddCoin;
-        UIAction.OnCollisionWithHealthBonus -= UpdateHealthSlider;
+        GameAction.OnCollisionWithCoin -= AddCoin;
+        GameAction.OnUpdatePlayerHealthSlider -= UpdateHealthSlider;
+        GameAction.OnPlayerDie -= GameOver;
+        GameAction.OnGameComplete -= GameComplete;
     }
 
     // Start is called before the first frame update
@@ -50,25 +55,45 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < enemyCount; i++)
         {
+            bool lastEnemy = false;
+
+            if (currentlevel == levelDataList.Count - 1 && i == enemyCount - 1) lastEnemy = true;
+
             ObjectName enemyType = enemyList[Random.Range(0, enemyList.Count)];
-            spawner.SpawnEnemyAtRandomPos(enemyType);
+            spawner.SpawnEnemyAtRandomPos(enemyType, lastEnemy);
+
             yield return new WaitForSeconds(enemySpawnTime);
         }
 
         currentlevel++;
         StartCoroutine(Startlevel());
     }
-
+  
     void AddCoin()
     {
         coin ++;
         coinText.text = coin.ToString();
     }
-    
-    void UpdateHealthSlider()
+
+    public int GetCoinCount()
     {
-        playerHealthSlider.value = playerHealth.GetHealth();
+        return coin;
     }
+    
+    void UpdateHealthSlider(int Value)
+    {
+        playerHealthSlider.value = Value ;
+    }
+
+    void GameOver()
+    {
+        gameOverPanel.SetActive(true);
+    }
+    
+    void GameComplete()
+    {
+        gameCompletePanel.SetActive(true);
+    } 
 }
 
 [System.Serializable]
