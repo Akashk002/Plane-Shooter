@@ -18,14 +18,7 @@ public class PlayerHealth : BaseHealth
     }
     public override void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-
-        if (currentHealth <= 0)
-        {
-            currentHealth = 0;
-            Die();
-        }
-
+        base.TakeDamage(damage);
         GameAction.OnUpdatePlayerHealthSlider?.Invoke(currentHealth);
     }
 

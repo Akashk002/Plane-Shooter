@@ -14,6 +14,11 @@ public class EnemyHealth : BaseHealth
         GameAction.OnEnemyDamage -= TakeDamage;
     }
 
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+    }
+
     public override void Die()
     {
         ObjectPoolManager.This.GetPooledObject(ObjectName.PlaneDestroyEffect, transform.position);
