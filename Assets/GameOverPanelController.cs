@@ -10,7 +10,7 @@ public class GameOverPanelController : MonoBehaviour
 
     private void OnEnable()
     {
-        coinCountText.text = GameManager.This.GetCoinCount().ToString();
+        coinCountText.text = GameServices.Instance.GetCoinCount().ToString();
         Time.timeScale = 0;
     }
 

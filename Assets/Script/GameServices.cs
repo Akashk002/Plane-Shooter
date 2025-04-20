@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using PlaneShooter.Utilities;
 
-public class GameManager : MonoBehaviour
+public class GameServices : GenericMonoSingleton<GameServices>
 {
-    public static GameManager This;
     public List<LevelData> levelDataList = new List<LevelData>();
     [SerializeField] Spawner spawner;
     [SerializeField] levelStartAnimation levelStartAnimation;
@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        This = this;
         StartCoroutine(Startlevel());
     }
 
