@@ -1,18 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
+using PlaneShooter.Bullets;
 using UnityEngine;
 
-public class PlayerService : MonoBehaviour
+namespace PlaneShooter.Player
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerService
     {
-        
-    }
+        private BulletPool bulletPool;
+        private PlayerController playerController;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public PlayerService(PlayerView playerViewPrefab, PlayerScriptableObject playerScriptableObject, BulletView bulletPrefab, BulletScriptableObject bulletScriptableObject)
+        {
+            bulletPool = new BulletPool(bulletPrefab, bulletScriptableObject);
+            playerController = new PlayerController(playerViewPrefab, playerScriptableObject, bulletPool);
+        }
+
+        public PlayerController GetPlayerController() => playerController;
+
+        public Vector3 GetPlayerPosition() => playerController.GetPlayerPosition();
+
+        public void ReturnBulletToPool(BulletController bulletToReturn) => bulletPool.ReturnBullet(bulletToReturn);
+
     }
 }

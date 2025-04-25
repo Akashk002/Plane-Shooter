@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletView : MonoBehaviour
+namespace PlaneShooter.Bullets
 {
-    // Start is called before the first frame update
-    void Start()
+    public class BulletView : MonoBehaviour
     {
-        
-    }
+        private BulletController bulletController;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void SetController(BulletController bulletController) => this.bulletController = bulletController;
+
+        private void Update() => bulletController?.UpdateBulletMotion();
+
+        private void OnTriggerEnter2D(Collider2D collision) => bulletController?.OnBulletEnteredTrigger(collision.gameObject);
     }
 }

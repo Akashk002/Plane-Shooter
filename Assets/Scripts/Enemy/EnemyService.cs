@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PlaneShooter.Bullets;
+using PlaneShooter.Enemy;
 
-public class EnemyService : MonoBehaviour
+namespace PlaneShooter.Player
 {
-    // Start is called before the first frame update
-    void Start()
+    public class EnemyService
     {
-        
-    }
+        private BulletPool bulletPool;
+        private EnemyController enemyController;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public EnemyService(EnemyView enemyViewPrefab, EnemyScriptableObject enemyScriptableObject, BulletView bulletPrefab, BulletScriptableObject bulletScriptableObject)
+        {
+            bulletPool = new BulletPool(bulletPrefab, bulletScriptableObject);
+            enemyController = new EnemyController(enemyViewPrefab, enemyScriptableObject, bulletPool);
+            enemyController.Configure(enemyViewPrefab.transform.position);
+        }
+
+        public EnemyController GetEnemyController() => enemyController;
+
+        public void ReturnBulletToPool(BulletController bulletToReturn) => bulletPool.ReturnBullet(bulletToReturn);
     }
 }

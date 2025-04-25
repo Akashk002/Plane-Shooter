@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletScriptableObject : MonoBehaviour
+namespace PlaneShooter.Bullets
 {
-    // Start is called before the first frame update
-    void Start()
+    [CreateAssetMenu(fileName = "BulletScriptableObject", menuName = "ScriptableObjects/BulletSO")]
+    public class BulletScriptableObject : ScriptableObject
     {
-        
+        public BulletType bulletType;
+        public float speed;
+        public int damage;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+}
+[System.Serializable]
+public enum BulletType
+{
+    PlayerBullet,
+    EnemyBullet1,
+    EnemyBullet2,
+    EnemyBullet3,
+    EnemyBullet4,
+    EnemyBullet5,
 }

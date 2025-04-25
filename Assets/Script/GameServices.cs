@@ -131,3 +131,9 @@ public enum BonusType
     Coin,
     Health
 }
+[System.Serializable]
+public enum destroyEffectType
+{
+    PlaneDestroyEffect,
+    BulletDestroyEffect
+}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2788864631035147325}
   m_Layer: 0
-  m_Name: SpawnPoint
+  m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,7 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1991335786437896704}
   m_Layer: 0
-  m_Name: SpawnPoint2
+  m_Name: FirePoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,15 +240,12 @@ GameObject:
   m_Component:
   - component: {fileID: 9194529932597277173}
   - component: {fileID: 9194529932597277172}
-  - component: {fileID: 1154921046492293278}
-  - component: {fileID: 6817895308579731121}
-  - component: {fileID: 2332456287695821378}
   - component: {fileID: 45892396}
   - component: {fileID: 9194529932597277170}
   - component: {fileID: 8723136416669545653}
-  - component: {fileID: 7735368470569538608}
+  - component: {fileID: 3549404962900723162}
   m_Layer: 0
-  m_Name: PlayerController
+  m_Name: PlayerPrefab
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -262,7 +259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9194529932597277177}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.58, y: -4.3, z: 0}
+  m_LocalPosition: {x: 0, y: -4.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -325,45 +322,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1154921046492293278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9194529932597277177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c57f807fdd65b149a8bd1d19683e7be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
---- !u!114 &6817895308579731121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9194529932597277177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2c9beb165a42b44888af51b5c0ade02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  bonusHealth: 50
---- !u!114 &2332456287695821378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9194529932597277177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eb6309546ed31840a275936294cfe3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!68 &45892396
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -433,7 +391,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7735368470569538608
+--- !u!114 &3549404962900723162
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -442,14 +400,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 9194529932597277177}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c16e7d0a974c2446955e4fb41d64f6c, type: 3}
+  m_Script: {fileID: 11500000, guid: cbf1a7f2f7eaa1f4a9dae974bde79fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectname: 0
-  flashList:
-  - {fileID: 3598418061010319322}
-  - {fileID: 5530896549058959084}
-  spawnList:
+  firePoints:
   - {fileID: 2788864631035147325}
   - {fileID: 1991335786437896704}
-  fireRate: 0.2
+  flashEffect:
+  - {fileID: 3598418061010319322}
+  - {fileID: 5530896549058959084}
+  moveX: 0
+  moveY: 0
+  minX: 0
+  maxX: 0
+  minY: 0
+  maxY: 0
