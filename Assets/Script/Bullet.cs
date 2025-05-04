@@ -18,21 +18,21 @@ public class Bullet : MonoBehaviour
     {
         Debug.Log(collision);
 
-        if (collision.gameObject.tag == "Collider")
-        {
-            gameObject.SetActive(false);
-        }
-        else
-        if (tag == "PlayerBullet" && collision.GetComponent<EnemyMovement>())
-        {
-            ObjectPoolManager.This.GetPooledObject(ObjectName.BulletDestroyEffect, transform.position);
-            gameObject.SetActive(false);
-        }
-        else
-        if (tag == "EnemyBullet" && collision.GetComponent<PlayerMovement>())
-        {
-            ObjectPoolManager.This.GetPooledObject(ObjectName.BulletDestroyEffect, transform.position);
-            gameObject.SetActive(false);
-        }
+        //if (collision.gameObject.tag == "Collider")
+        //{
+        //    gameObject.SetActive(false);
+        //}
+        //else
+        //if (tag == "PlayerBullet" && collision.GetComponent<EnemyMovement>())
+        //{
+        //    ObjectPoolManager.This.GetPooledObject(ObjectName.BulletDestroyEffect, transform.position);
+        //    gameObject.SetActive(false);
+        //}
+        //else
+        //if (tag == "EnemyBullet" && collision.GetComponent<PlayerMovement>())
+        //{
+        //    ObjectPoolManager.This.GetPooledObject(ObjectName.BulletDestroyEffect, transform.position);
+        //    gameObject.SetActive(false);
+        //}
     }
 }
