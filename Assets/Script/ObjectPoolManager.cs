@@ -31,7 +31,6 @@ public class ObjectPoolManager : MonoBehaviour
                 objectPool.Enqueue(obj);
             }
 
-            Debug.Log("key1 - " + pool.objectname);
             poolDictionary.Add(pool.objectname.ToString(), objectPool);
         }
     }
@@ -39,7 +38,7 @@ public class ObjectPoolManager : MonoBehaviour
     // Function to get an object from the pool
     public GameObject GetPooledObject(ObjectName objectname, Vector3 position)
     {
-        Debug.Log("key2 - " + objectname);
+        Debug.Log("Object name - " + objectname + " - " + objectname);
         if (!poolDictionary.ContainsKey(objectname.ToString()))
         {
             Debug.LogWarning("Pool with tag " + objectname + " doesn't exist.");
@@ -47,6 +46,8 @@ public class ObjectPoolManager : MonoBehaviour
         }
 
         GameObject obj = poolDictionary[objectname.ToString()].Dequeue();
+
+        Debug.Log("Object Pool - " + objectname + " - " + obj.name);
 
         if (obj.activeInHierarchy)
         {

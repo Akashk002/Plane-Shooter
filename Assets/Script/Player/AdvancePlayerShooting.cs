@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicPlayerShooting : IPlayerShooting
+public class AdvancePlayerShooting : IPlayerShooting
 {
     private ObjectName bulletName;
     private List<GameObject> flashList;
@@ -12,7 +12,7 @@ public class BasicPlayerShooting : IPlayerShooting
     private MonoBehaviour mono;
     private Coroutine shootingCoroutine;
 
-    public BasicPlayerShooting(MonoBehaviour mono, ObjectName bulletName, List<GameObject> flashList, List<Transform> spawnPoints, float fireRate)
+    public AdvancePlayerShooting(MonoBehaviour mono, ObjectName bulletName, List<GameObject> flashList, List<Transform> spawnPoints, float fireRate)
     {
         this.mono = mono;
         this.bulletName = bulletName;

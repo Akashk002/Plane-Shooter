@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private IPlayerMovement movement;
-    private IPlayerShooting shooting;
-    private IPlayerHealth health;
-    private IPlayerCollisionHandler collisionHandler;
+    protected IPlayerMovement movement;
+    protected IPlayerShooting shooting;
+    protected IPlayerHealth health;
+    protected IPlayerCollisionHandler collisionHandler;
 
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private ObjectName bulletName;
-    [SerializeField] private List<GameObject> flashList;
-    [SerializeField] private List<Transform> spawnPoints;
-    [SerializeField] private float fireRate;
-    [SerializeField] private int maxHealth = 100;
+    [SerializeField] protected float speed = 5f;
+    [SerializeField] protected ObjectName bulletName;
+    [SerializeField] protected List<GameObject> flashList;
+    [SerializeField] protected List<Transform> spawnPoints;
+    [SerializeField] protected float fireRate;
+    [SerializeField] protected int maxHealth = 100;
 
-    void Awake()
+    public virtual void Awake()
     {
         movement = new SimplePlayerMovement(transform, speed);
         shooting = new BasicPlayerShooting(this, bulletName, flashList, spawnPoints, fireRate);
@@ -24,13 +24,13 @@ public class Player : MonoBehaviour
         collisionHandler = new PlayerCollisionHandler();
     }
 
-    void Update()
+    public virtual void Update()
     {
         movement.Move();
         shooting.HandleShooting();
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         collisionHandler.HandleCollision(collision);
     }
